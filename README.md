@@ -1,6 +1,4 @@
-# dreamteampro3
-
-### Application name: EZ-VALPARK
+### Application name: ticketLessValet
 
 ## Overview
 Valet Parking Solutions app is designed to make valet parking easy for drivers and parking operators as well. It is a ticketless application. It generates a barcode for easy parking and checkout. The app is accessible to computer, laptops, tablets and mobile devices. The application uses several technologies in order to complete our vision. We will be able to:
@@ -37,9 +35,5 @@ In the backend we used CRUD operations to manage the database and also followed 
 13. SendGrid
 
 
-##Development team
-Amit Singh
-Julio Bell
-Rafael Uzcategui
-Omar Vega
+
 # EZValetParking-app
