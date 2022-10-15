@@ -1,0 +1,60 @@
+{
+  "name": "mern-project3",
+  "version": "1.0.0",
+  "description": "mern app with passport auth",
+  "main": "server.js",
+  "scripts": {
+    "start": "if-env NODE_ENV=production && npm run start:prod || npm run start:dev",
+    "start:prod": "node server.js",
+    "start:dev": "concurrently \"nodemon --ignore 'client/*'\" \"npm run client\"",
+    "client": "cd client && npm run start",
+    "seed": "node scripts/seedDB.js",
+    "install": "cd client && npm install",
+    "build": "cd client && npm run build",
+    "heroku-postbuild": "npm run build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pirueto2004/EZValetParking-app.git"
+  },
+  "keywords": [],
+  "author": "Julio Bell",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/pirueto2004/EZValetParking-app/issues"
+  },
+  "homepage": "https://github.com/pirueto2004/EZValetParking-app#readme",
+  "dependencies": {
+    "bcrypt-nodejs": "0.0.3",
+    "body-parser": "^1.20.1",
+    "caniuse-lite": "^1.0.30001419",
+    "chart.js": "^2.9.4",
+    "connect-flash": "^0.1.1",
+    "dotenv": "^8.6.0",
+    "express": "^4.18.2",
+    "express-pino-logger": "^4.0.0",
+    "express-session": "^1.17.3",
+    "if-env": "^1.0.4",
+    "moment": "^2.29.4",
+    "mongoose": "^6.6.5",
+    "morgan": "^1.10.0",
+    "nodemailer": "^5.1.1",
+    "npm-run-all": "^4.1.5",
+    "passport": "^0.4.1",
+    "passport-local": "^1.0.0",
+    "path": "^0.12.7",
+    "pino-colada": "^1.6.1",
+    "square-connect": "^2.20200122.0",
+    "stripe": "^7.63.1",
+    "twilio": "^3.82.2",
+    "uuid": "^3.4.0"
+  },
+  "devDependencies": {
+    "colors": "^1.4.0",
+    "concurrently": "^4.1.2",
+    "nodemon": "^1.19.4"
+  },
+  "engines": {
+    "node": "^8.11.4"
+  }
+}
