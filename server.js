@@ -8,6 +8,7 @@ const session = require("express-session");
 const passport = require("passport");
 const logger = require("morgan");
 const flash = require("connect-flash");
+const cors = require("cors");
 // const sendEmail = require('./models/sendEmail');
 //const pino = require('express-pino-logger')();
 const client = require("twilio")(
@@ -36,6 +37,7 @@ const http = require("http");
 const MessagingResponse = require("twilio").twiml.MessagingResponse;
 const bodyParser = require("body-parser");
 // const app = express();
+app.use(cors());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 //app.use(pino);
@@ -49,8 +51,8 @@ app.post("/sms", (req, res) => {
   if (req.body.Body.trim().toLowerCase() == "ready") {
     // Step 2
     let mailOptions = {
-      from: '"EZ Valet" <belljulio66@gmail.com>',
-      to: ["belljulio66@gmail.com"],
+      from: '"EZ Valet" <omarvegaabreu@gmail.com>',
+      to: ["omarvegaabreu@gmail.com"],
       subject: "New Customer Message - Ready",
       text: "From: " + req.body.From,
     };
@@ -68,8 +70,8 @@ app.post("/sms", (req, res) => {
   } else if (req.body.Body.trim().toLowerCase() == "wait") {
     // Step 2
     let mailOptions = {
-      from: '"EZ Valet" <belljulio66@gmail.com>',
-      to: ["belljulio66@gmail.com"],
+      from: '"EZ Valet" <omarvegaabreu@gmail.com>',
+      to: ["omarvegaabreu@gmail.com"],
       subject: "New Customer message - Wait",
       text: "From: " + req.body.From,
     };
@@ -152,7 +154,7 @@ app.use(routes);
 
 function sendNotification(message) {
   sendEmail(
-    "belljulio66@gmail.com, belljulio66@gmail.com",
+    "omarvegaabreu@gmail.com, omarvegaabreu@gmail.com",
     "test  notification",
     message
   );

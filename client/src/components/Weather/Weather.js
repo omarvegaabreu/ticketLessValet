@@ -1,7 +1,8 @@
 import React from "react";
 import moment from "moment";
+import Clock from "../Clock/Clock";
 import "./Weather.css";
-require('dotenv').config();
+require("dotenv").config();
 
 let moonmoji = require("moonmoji")();
 
@@ -19,16 +20,16 @@ class Weather extends React.Component {
     icon: undefined,
     sunrise: undefined,
     sunset: undefined,
-    moonImage: undefined
+    moonImage: undefined,
   };
 
   componentDidMount() {
     if (navigator.geolocation) {
       this.getPosition()
-        .then(position => {
+        .then((position) => {
           this.getWeather(position.coords.latitude, position.coords.longitude);
         })
-        .catch(err => {
+        .catch((err) => {
           this.setState({ errorMessage: err.message });
         });
     } else {
@@ -44,49 +45,49 @@ class Weather extends React.Component {
       case "New Moon":
         this.setState({
           moonImage:
-            "https://upload.wikimedia.org/wikipedia/commons/e/e0/Twemoji_1f311.svg"
+            "https://upload.wikimedia.org/wikipedia/commons/e/e0/Twemoji_1f311.svg",
         });
         break;
       case "Waxing Crescent":
         this.setState({
           moonImage:
-            "https://upload.wikimedia.org/wikipedia/commons/c/c5/Twemoji_1f312.svg"
+            "https://upload.wikimedia.org/wikipedia/commons/c/c5/Twemoji_1f312.svg",
         });
         break;
       case "First Quarter":
         this.setState({
           moonImage:
-            "https://upload.wikimedia.org/wikipedia/commons/4/40/Twemoji_1f313.svg"
+            "https://upload.wikimedia.org/wikipedia/commons/4/40/Twemoji_1f313.svg",
         });
         break;
       case "Waxing Gibbous":
         this.setState({
           moonImage:
-            "https://upload.wikimedia.org/wikipedia/commons/1/1c/Twemoji_1f314.svg"
+            "https://upload.wikimedia.org/wikipedia/commons/1/1c/Twemoji_1f314.svg",
         });
         break;
       case "Full Moon":
         this.setState({
           moonImage:
-            "https://upload.wikimedia.org/wikipedia/commons/7/78/Twemoji_1f315.svg"
+            "https://upload.wikimedia.org/wikipedia/commons/7/78/Twemoji_1f315.svg",
         });
         break;
       case "Waning Gibbous":
         this.setState({
           moonImage:
-            "https://upload.wikimedia.org/wikipedia/commons/d/de/Twemoji_1f316.svg"
+            "https://upload.wikimedia.org/wikipedia/commons/d/de/Twemoji_1f316.svg",
         });
         break;
       case "Last Quarter":
         this.setState({
           moonImage:
-            "https://upload.wikimedia.org/wikipedia/commons/6/67/Twemoji_1f317.svg"
+            "https://upload.wikimedia.org/wikipedia/commons/6/67/Twemoji_1f317.svg",
         });
         break;
       case "Waning Crescent":
         this.setState({
           moonImage:
-            "https://upload.wikimedia.org/wikipedia/commons/9/96/Twemoji_1f318.svg"
+            "https://upload.wikimedia.org/wikipedia/commons/9/96/Twemoji_1f318.svg",
         });
         break;
       default:
@@ -99,7 +100,7 @@ class Weather extends React.Component {
     clearInterval(this.timerID);
   }
 
-  getPosition = options => {
+  getPosition = (options) => {
     return new Promise(function(resolve, reject) {
       navigator.geolocation.getCurrentPosition(resolve, reject, options);
     });
@@ -107,9 +108,7 @@ class Weather extends React.Component {
 
   getWeather = async (lat, lon) => {
     const api_call = await fetch(
-      `//api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${
-        "0773cf96a3f9b154957742f3a929e73a"
-      }&units=metric`
+      `//api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${"0773cf96a3f9b154957742f3a929e73a"}&units=metric`
     );
     const data = await api_call.json();
     this.setState({
@@ -123,7 +122,7 @@ class Weather extends React.Component {
       icon: data.weather[0].icon,
       // sunrise: this.getTimeFromUnixTimeStamp(data.sys.sunrise),
       sunrise: moment.unix(data.sys.sunrise).format("hh:mm a"),
-      sunset: moment.unix(data.sys.sunset).format("hh:mm a")
+      sunset: moment.unix(data.sys.sunset).format("hh:mm a"),
       // sunset: this.getTimeFromUnixTimeStamp(data.sys.sunset),
     });
   };
@@ -133,20 +132,25 @@ class Weather extends React.Component {
       return (
         <div className="weather" width={10} height={10}>
           <div>
-            {/*<span className="weather-item">{this.state.city}</span>*/}
+            <span className="weather-item">{`${this.state.city}`}</span>
             <span className="weather-item">
-              {this.state.temperatureC} &deg;C
+              {`${this.state.temperatureC}`} &deg;C
               <span className="slash">/</span>
-              <span>{this.state.temperatureF} &deg;F</span>
+              <span>{`${this.state.temperatureF}`} &deg; F</span>
             </span>
             <span className="weather-item">
               humidity {this.state.humidity}%
             </span>
             <span className="weather-item">{this.state.description}</span>
           </div>
-          {/*<br />
-          <img src={`http://openweathermap.org/img/w/${this.state.icon}.png`} />*/}
-          <div>
+          {/* change here */}
+          {/* <br /> */}
+          {/* <img
+            src={`http://openweathermap.org/img/w/${this.state.icon}.png`}
+            alt="icon"
+          /> */}
+          {/* change here */}
+          {/* <div>
             <svg className="sun-item" viewBox="0 0 24 24">
               <path
                 fill="#BDDDFF"
@@ -166,13 +170,13 @@ class Weather extends React.Component {
                 style={{
                   height: "1.5rem",
                   marginLeft: "1.5rem",
-                  marginRight: "1rem"
+                  marginRight: "1rem",
                 }}
                 src={this.state.moonImage}
                 alt="moon phase"
               />
             ) : null}
-          </div>
+          </div> */}
         </div>
       );
     } else {
