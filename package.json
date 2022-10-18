@@ -16,15 +16,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/pirueto2004/EZValetParking-app.git"
+    "url": "git+https://github.com/omarvegaabreu/ticketLessValet"
   },
   "keywords": [],
-  "author": "Julio Bell",
+  "author": "Omar Vega",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/pirueto2004/EZValetParking-app/issues"
+    "url": "https://github.com/omarvegaabreu/ticketLessValet/issues"
   },
-  "homepage": "https://github.com/pirueto2004/EZValetParking-app#readme",
+  "homepage": "https://github.com/omarvegaabreu/ticketLessValet#readme",
   "dependencies": {
     "bcrypt-nodejs": "0.0.3",
     "body-parser": "^1.20.1",

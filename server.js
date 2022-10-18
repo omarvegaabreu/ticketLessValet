@@ -161,36 +161,37 @@ function sendNotification(message) {
   console.log("Email sent");
 }
 
-// mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/Pro3_db_dev", { useNewUrlParser: true }, function(err) {
-// mongoose.connect(
-//   process.env.CONNECTIONSTRING || "mongodb://localhost:27017/ezValetParkingDB",
-//   { useNewUrlParser: true },
-//   function (err) {
-//     if (err) throw err;
-//     console.log(`mongoose connection successful`.yellow);
-//     app.listen(PORT, (err) => {
-//       if (err) throw err;
-//       console.log(`connected on port ${PORT}`.cyan);
-//     });
-//   }
-// );
 const mongoURI = `mongodb+srv://atlasadmin:${process.env.DB_PASSWORD}@todolistwithauth.zst3r.mongodb.net/todolistwithauth?retryWrites=true&w=majority`;
 
-const connectDB = async () => {
-  try {
-    // Connect to the MongoDB cluster
-    await mongoose.connect(
-      mongoURI,
-      { useNewUrlParser: true, useUnifiedTopology: true },
-      // using default options object
-      //There is no need for options object for this database at the current time.
-      //options info in docs https://mongoosejs.com/docs/api/mongoose.html
-      () => console.log(" mongoDB is connected")
-    );
-  } catch (err) {
-    console.error("MONGO DB ERROR MESSAGE " + err.message);
-    console.log(`could not connect to database unexpected ${e.message}`);
+// mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/Pro3_db_dev", { useNewUrlParser: true }, function (err) {
+mongoose.connect(
+  mongoURI || "mongodb://localhost:27017/ezValetParkingDB",
+  { useNewUrlParser: true },
+  function (err) {
+    if (err) throw err;
+    console.log(`mongoose connection successful`.yellow);
+    app.listen(PORT, (err) => {
+      if (err) throw err;
+      console.log(`connected on port ${PORT}`.cyan);
+    });
   }
-};
+);
 
-connectDB();
+// const connectDB = async () => {
+//   try {
+//     // Connect to the MongoDB cluster
+//     await mongoose.connect(
+//       mongoURI,
+//       { useNewUrlParser: true, useUnifiedTopology: true },
+//       // using default options object
+//       //There is no need for options object for this database at the current time.
+//       //options info in docs https://mongoosejs.com/docs/api/mongoose.html
+//       () => console.log(" mongoDB is connected")
+//     );
+//   } catch (err) {
+//     console.error("MONGO DB ERROR MESSAGE " + err.message);
+//     console.log(`could not connect to database unexpected ${e.message}`);
+//   }
+// };
+
+// connectDB();
