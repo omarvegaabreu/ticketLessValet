@@ -18,19 +18,19 @@ export default {
 
   // checks to see if the user is logged in and and admin, then returns the user
   isAdmin: function() {
-    return axios.get("/api/users/logout")
+    return axios.get("/api/users/logout");
   },
 
   // logs out the user
   logout: function() {
-    return axios.get("/api/users/logout")
+    return axios.get("/api/users/logout");
   },
 
-  saveVehicle: function(vehicleinfo){
-      return axios.post("/api/users/vehicle",vehicleinfo)
+  saveVehicle: function(vehicleinfo) {
+    return axios.post("/api/users/vehicle", vehicleinfo);
   },
-  getVehicles: function(){
-    return axios.get("/api/users/vehicle")
+  getVehicles: function() {
+    return axios.get("/api/users/vehicle");
   },
 
   deleteVehicles: function(id) {
@@ -41,8 +41,7 @@ export default {
     return axios.put("/api/users/vehicle/" + id, body);
   },
 
-  statsVehicle: function (from, end) {
+  statsVehicle: function(from, end) {
     return axios.get("/api/users/stats", { from, end });
-  }
-  
-  };
+  },
+};
