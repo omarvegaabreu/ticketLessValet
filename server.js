@@ -9,6 +9,7 @@ const passport = require("passport");
 const logger = require("morgan");
 const flash = require("connect-flash");
 const cors = require("cors");
+const path = require("path");
 // const sendEmail = require('./models/sendEmail');
 //const pino = require('express-pino-logger')();
 const client = require("twilio")(
@@ -134,7 +135,10 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(logger("dev"));
 app.use(flash());
-app.use(express.static("public"));
+/***changed path to clear error */
+app.use(express.static(path.join(__dirname, "client", "public", "index.html")));
+// app.use(express.static(path.join(__dirname, "public")));
+/***changed path to clear error */
 app.use(
   session({
     secret: "keyboard cat",

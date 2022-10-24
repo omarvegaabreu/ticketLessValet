@@ -52,10 +52,11 @@
   },
   "devDependencies": {
     "colors": "^1.4.0",
-    "concurrently": "^4.1.2",
+    "concurrently": "^7.5.0",
     "nodemon": "^1.19.4"
   },
   "engines": {
-      "node": "^8.11.4"
-  }
+    "node": "^8.11.4"
+  },
+  "packageManager": "yarn@3.2.4"
 }

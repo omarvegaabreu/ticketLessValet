@@ -56,10 +56,10 @@ class Home extends Component {
         </div>
 
         <div className="row text-center justify-content-center">
-          <button type="button" class="btn btn-info">
+          <button type="button" className="btn btn-info">
             Terms & Conditions
           </button>
-          <button type="button" class="btn btn-success">
+          <button type="button" className="btn btn-success">
             Privacy Policy
           </button>
         </div>
