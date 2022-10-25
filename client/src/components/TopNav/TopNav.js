@@ -26,10 +26,8 @@ export default class Navigation extends Component {
     };
   }
   componentDidMount() {
-    console.log("component did mount");
     API.isLoggedIn()
       .then((user) => {
-        console.log(user);
         if (user.data.loggedIn) {
           this.setState({
             loggedIn: true,

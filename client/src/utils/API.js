@@ -13,6 +13,7 @@ export default {
 
   // checks to see if user is logged in, then returns the user
   isLoggedIn: function() {
+    console.log("islogged in function");
     return axios.get("/api/users/dashboard");
   },
 
